@@ -414,6 +414,7 @@ abstract class Node extends Model
 
         return $instance->newQuery()
                         ->whereNull($instance->getParentColumnName())
+                        ->orWhere($instance->getParentColumnName(), 0)
                         ->orderBy($instance->getQualifiedOrderColumnName());
     }
 
@@ -454,6 +455,7 @@ abstract class Node extends Model
 
         return $instance->newQuery()
                         ->whereNotNull($instance->getParentColumnName())
+                        ->where($instance->getParentColumnName(), '!=', 0)
                         ->whereRaw($rgtCol.' - '.$lftCol.' != 1')
                         ->orderBy($instance->getQualifiedOrderColumnName());
     }
@@ -546,7 +548,7 @@ abstract class Node extends Model
     */
     public function isRoot()
     {
-        return is_null($this->getParentId());
+        return is_null($this->getParentId()) || $this->getParentId() == 0;
     }
 
     /**
@@ -587,11 +589,14 @@ abstract class Node extends Model
     public function getRoot()
     {
         if ($this->exists) {
-            return $this->ancestorsAndSelf()->whereNull($this->getParentColumnName())->first();
+            return $this->ancestorsAndSelf()
+                ->whereNull($this->getParentColumnName())
+                ->orWhere($this->getParentColumnName(), 0)
+                ->first();
         } else {
             $parentId = $this->getParentId();
 
-            if (!is_null($parentId) && $currentParent = static::find($parentId)) {
+            if ((!is_null($parentId) && $parentId!=0) && $currentParent = static::find($parentId)) {
                 return $currentParent->getRoot();
             } else {
                 return $this;
@@ -755,6 +760,7 @@ abstract class Node extends Model
 
         return $this->descendants()
                     ->whereNotNull($this->getQualifiedParentColumnName())
+                    ->where($this->getQualifiedParentColumnName(), '!=', 0)
                     ->whereRaw($rgtCol.' - '.$lftCol.' != 1');
     }
 
@@ -1165,7 +1171,7 @@ abstract class Node extends Model
     {
         $pid = static::$moveToNewParentId;
 
-        if (is_null($pid)) {
+        if (is_null($pid) || $pid == 0) {
            $this->makeRoot();
         } elseif ($pid !== false) {
             $this->makeChildOf($pid);
