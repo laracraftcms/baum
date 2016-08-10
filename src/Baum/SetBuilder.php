@@ -60,6 +60,7 @@ class SetBuilder
   {
       return $this->node->newQuery()
       ->whereNull($this->node->getQualifiedParentColumnName())
+      ->orWhere($this->node->getQualifiedParentColumnName(), 0)
       ->orderBy($this->node->getQualifiedLeftColumnName())
       ->orderBy($this->node->getQualifiedRightColumnName())
       ->orderBy($this->node->getQualifiedKeyName())
