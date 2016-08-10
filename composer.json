@@ -1,10 +1,15 @@
 {
-  "name": "gazsp/baum",
+  "name": "wouterNL/baum",
   "type": "library",
   "description": "Baum is an implementation of the Nested Set pattern for Eloquent models.",
   "keywords": ["nested set", "laravel", "laravel 5", "eloquent", "database"],
   "license": "MIT",
   "authors": [
+	  {
+      "name": "Wouter Steegers",
+      "email": "wouter_steegers@ocali.org",
+      "homepage": "http://ocali.org"
+    },
     {
       "name": "Estanislau Trepat",
       "email": "estanis@etrepat.com",
@@ -14,8 +19,8 @@
       "name": "Gary Pearman",
       "email": "gaz@red-robot.co.uk",
       "homepage": "http://red-robot.co.uk"
-    }
-
+    },
+    
   ],
   "require": {
     "php": ">=5.5.9",
