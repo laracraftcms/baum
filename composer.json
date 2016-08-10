@@ -20,18 +20,18 @@
       "email": "gaz@red-robot.co.uk",
       "homepage": "http://red-robot.co.uk"
     }
-    
+
   ],
   "require": {
     "php": ">=5.5.9",
-    "illuminate/console": "5.2.*",
-    "illuminate/database": "5.2.*@dev",
-    "illuminate/events": "5.2.*",
-    "illuminate/filesystem": "5.2.*",
-    "illuminate/support": "5.2.*"
+    "illuminate/console": "5.2.* || 5.3.*",
+    "illuminate/database": "5.2.*@dev || 5.3.*",
+    "illuminate/events": "5.2.* || 5.3.*",
+    "illuminate/filesystem": "5.2.* || 5.3.*",
+    "illuminate/support": "5.2.* || 5.3.*"
   },
   "require-dev": {
-    "phpunit/phpunit": "4.*",
+    "phpunit/phpunit": "4.* || 5.0",
     "mockery/mockery": "~0.9",
     "d11wtq/boris": "~1.0.10",
     "satooshi/php-coveralls": "dev-master"
