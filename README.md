@@ -100,7 +100,7 @@ ordinary trees are suddenly quite fast. Nifty, isn't it?
 Baum works with Laravel 5 onwards. You can add it to your `composer.json` file
 with:
 
-    "gazsp/baum": "~1.1"
+    "wouter-nl/baum": "~1.2"
 
 Run `composer install` to install it.
 
