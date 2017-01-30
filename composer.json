@@ -1,5 +1,5 @@
 {
-  "name": "wouter-nl/baum",
+  "name": "laracraftcms/baum",
   "type": "library",
   "description": "Baum is an implementation of the Nested Set pattern for Eloquent models.",
   "keywords": ["nested set", "laravel", "laravel 5", "eloquent", "database"],
@@ -19,8 +19,12 @@
       "name": "Gary Pearman",
       "email": "gaz@red-robot.co.uk",
       "homepage": "http://red-robot.co.uk"
+    },
+    {
+     "name": "Greg Haddow",
+     "email": "greg@greghaddow.co.uk",
+     "homepage": "http://www.greghaddow.co.uk"
     }
-
   ],
   "require": {
     "php": ">=5.5.9",
