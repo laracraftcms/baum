@@ -329,7 +329,8 @@ abstract class Node extends Model
     }
 
     /**
-    * Parent relation (self-referential) 1-1.
+    * 
+    relation (self-referential) 1-1.
     *
     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
     */
@@ -1171,7 +1172,7 @@ abstract class Node extends Model
     {
         $pid = static::$moveToNewParentId;
 
-        if (is_null($pid) || $pid == 0) {
+        if (is_null($pid) || $pid === 0) {
            $this->makeRoot();
         } elseif ($pid !== false) {
             $this->makeChildOf($pid);
